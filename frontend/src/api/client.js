@@ -4,44 +4,38 @@
 // DESKRIPSI: Axios HTTP client untuk komunikasi dengan backend API
 // ═══════════════════════════════════════════════════════════════════════════
 
-// TODO: Import axios (1 baris)
-// import axios from 'axios'
+import axios from 'axios'
 
-// TODO: Base URL configuration (1 baris)
-// const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8001'
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8001'
 
-// TODO: Create axios instance dengan config (7 baris)
-// const api = axios.create({
-//   baseURL: BASE_URL,
-//   timeout: 15000,  // 15 seconds timeout
-//   headers: {
-//     'Content-Type': 'application/json',
-//   },
-// })
+const api = axios.create({
+  baseURL: BASE_URL,
+  timeout: 15000,  // 15 seconds timeout
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
 
-// TODO: Response interceptor untuk error handling (12 baris)
-// api.interceptors.response.use(
-//   (response) => response.data,  // Return data langsung jika success
-//   (error) => {
-//     // Extract error message dari berbagai format response
-//     const message =
-//       error.response?.data?.detail ||
-//       error.response?.data?.message ||
-//       error.message ||
-//       'Terjadi kesalahan pada server.'
-//     return Promise.reject(new Error(message))
-//   }
-// )
+api.interceptors.response.use(
+  (response) => response.data,  // Return data langsung jika success
+  (error) => {
+    // Extract error message dari berbagai format response
+    const message =
+      error.response?.data?.detail ||
+      error.response?.data?.message ||
+      error.message ||
+      'Terjadi kesalahan pada server.'
+    return Promise.reject(new Error(message))
+  }
+)
 
-// TODO: API endpoint functions (6 baris)
-// export const getStudent = (nim) => api.get(`/api/student/${nim}`)
-// export const getPredict = (nim) => api.get(`/api/predict/${nim}`)
-// export const getStudents = (params = {}) => api.get('/api/students', { params })
-// export const getHealth = () => api.get('/health')
-// export const postIPKTarget = (nim, payload) => api.post(`/api/ipk-target/${nim}`, payload)
+export const getStudent = (nim) => api.get(`/api/student/${nim}`)
+export const getPredict = (nim) => api.get(`/api/predict/${nim}`)
+export const getStudents = (params = {}) => api.get('/api/students', { params })
+export const getHealth = () => api.get('/health')
+export const postIPKTarget = (nim, payload) => api.post(`/api/ipk-target/${nim}`, payload)
 
-// TODO: Export default (1 baris)
-// export default api
+export default api
 
 // ═══════════════════════════════════════════════════════════════════════════
 // CATATAN PENTING:
