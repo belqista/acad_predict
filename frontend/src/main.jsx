@@ -4,21 +4,19 @@
 // DESKRIPSI: React entry point - mount app ke DOM
 // ═══════════════════════════════════════════════════════════════════════════
 
-// TODO: Import statements (5 baris)
-// 1. import React from 'react'
-// 2. import ReactDOM from 'react-dom/client'
-// 3. import { BrowserRouter } from 'react-router-dom'
-// 4. import App from './App.jsx'
-// 5. import './index.css'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App.jsx'
+import './index.css'
 
-// TODO: Render React app (8 baris)
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <BrowserRouter>
-//       <App />
-//     </BrowserRouter>
-//   </React.StrictMode>,
-// )
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+)
 
 // CATATAN:
 // - ReactDOM.createRoot: React 18 concurrent rendering API
