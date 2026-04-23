@@ -1,2 +1,14 @@
-role:
-tugas kamu apa:
+role: Backend Developer
+tugas kamu apa: Dict CURRICULUM: 4 prodi (TI, AK, TM, AP) × 6 semester
+Setiap prodi punya name, prodi_code, semesters (dict 1–6)
+Setiap entry matkul: {kode, nama, sks, wajib: True/False}
+Semester 1–2: ~8 matkul wajib + ~8–10 pilihan					
+Semester 3–4: ~6 matkul wajib + ~10–12 pilihan						
+Semester 5: ~4 matkul wajib + ~10 pilihan						
+Semester 6: ~3 matkul wajib (TA, KP, Seminar) + ~8–10 pilihan						
+def get_wajib_courses(prodi_key, semester) -> list						
+def get_pilihan_courses(prodi_key, semester) -> list						
+def get_prodi_key(nim: str) -> str  # parse dari digit 3–5 NIM						
+def get_max_sks_by_ipk(ipk, semester) -> int  # IPK>=3.0→24, >=2.5→22, else→20						
+def validate_prerequisites(kode, completed) -> tuple[bool, list]						
+def get_completed_courses(riwayat) -> set  # set of kode dari semua semester selesai
